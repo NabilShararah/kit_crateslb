@@ -40,17 +40,7 @@ class _Page3State extends State<Page3> {
               updateProducts(update); // update data asynchronously
             });
           }, icon: const Icon(Icons.refresh)),
-          /*IconButton(
-              onPressed: () {
-                setState(() {
-                  _load = false; // show progress bar
-                });
-                Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => const AddCategory())
-                );
-              },
-              icon: const Icon(Icons.add)
-          ),*/
+
           IconButton(onPressed: () {
             setState(() { // open the search product page
               Navigator.of(context).pushReplacement(
