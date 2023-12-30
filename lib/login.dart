@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
-import 'add_category.dart';
+import 'add_product.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -18,7 +18,7 @@ class _LoginState extends State<Login> {
   void update(bool success) {
     if (success) { // open the Add Category page if successful
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => const AddCategory()));
+          .push(MaterialPageRoute(builder: (context) => const AddProduct()));
     } else {
       ScaffoldMessenger.of(context)
           .showSnackBar(const SnackBar(content: Text('failed to set key')));
@@ -51,7 +51,7 @@ class _LoginState extends State<Login> {
       if (myKey.isNotEmpty) {
         Navigator.of(context)
             .push(MaterialPageRoute(
-            builder: (context) => const AddCategory()));
+            builder: (context) => const AddProduct()));
       }
     });
   }

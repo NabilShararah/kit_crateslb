@@ -39,9 +39,12 @@ class _SearchState extends State<Search> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Page 1'),
+    return Scaffold(backgroundColor: Colors.amberAccent,
+      appBar: AppBar(backgroundColor: Colors.black,
+        title: const Text('Page 1',
+          style: TextStyle(
+              fontSize:28,
+              color :Colors.amberAccent),),
         centerTitle: true,
       ),
       body: Center(child: Column(children: [
