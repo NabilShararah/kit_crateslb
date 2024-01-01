@@ -3,20 +3,17 @@ import 'package:flutter/material.dart';
 class Kit {
   String model;
   int price;
-  int Style = 1; // warranty years, default 1 year
-  bool KitType = false; // determines if car is insured, default is false
-  // constructor only takes model and price. warranty and insurance are set later
+  int Style = 1;
+  bool KitType = false;
+
   Kit(this.model, this.price);
-  // toString method used to display an item in a dropdown widget
+
   @override
   String toString() {
     return '$model Price: \$$price';
   }
   String getTotalPrice() {
-    /*
-    calculate price as follows: if warranty is 1 then 5% else 10%
-    if insurance is added, then add 1000 to total price
-     */
+
     int KitTypeamount = KitType ? 5 : 0;
     if (Style == 1) {
       return (price + KitTypeamount).toStringAsFixed(0);
@@ -31,8 +28,8 @@ List<Kit> kits = [
 ];
 class MyDropdownMenuWidget extends StatefulWidget {
   const MyDropdownMenuWidget({required this.updateKit, super.key});
-// below is a callback function to return the selected car to the home page
-// we will call it from the widget’s state class
+
+
   final Function(Kit) updateKit;
 
   @override
@@ -48,12 +45,12 @@ class _MyDropdownMenuWidgetState extends State<MyDropdownMenuWidget> {
           color: Colors.amber, // Set the color to amber
         ),
         width: 210.0,
-        initialSelection: kits[0], // first car to be displayed
+        initialSelection: kits[0],
         onSelected: (kit) {
           setState(() {
-            widget.updateKit(kit as Kit); // use widget to access widget fields from state class
+            widget.updateKit(kit as Kit);
           });
-        }, // the list map function converts the list of cars to a list of DropdownMenuEntries
+        },
         dropdownMenuEntries: kits.map<DropdownMenuEntry<Kit>>((Kit kit) {
           return DropdownMenuEntry(value: kit, label: kit.toString());
         }).toList());
@@ -72,20 +69,20 @@ class _StyleWidgetState extends State<StyleWidget> {
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
       const Text('Type', style: TextStyle(fontSize: 18.0,color :Colors.amber),),
-      Radio( value: 1, groupValue: _Style, // all radio buttons in the same group should share a common variable
+      Radio( value: 1, groupValue: _Style,
         onChanged: (val) {
           setState(() {
             _Style = val as int;
-            widget.updateStyle(_Style); // use widget to access widget fields from state class
+            widget.updateStyle(_Style);
           });
         }, activeColor: Colors.amber,
         focusColor: Colors.amber,
       ), const Text('Short Sleeves', style: TextStyle(fontSize: 18.0,color :Colors.amber)),
-      Radio( value: 5, groupValue: _Style, // all radio buttons in the same group should share a common variable
+      Radio( value: 5, groupValue: _Style,
         onChanged: (val) {
           setState(() {
             _Style = val as int;
-            widget.updateStyle(_Style); // use widget to access widget fields from state class
+            widget.updateStyle(_Style);
           });
         },activeColor: Colors.amber,
         focusColor: Colors.amber,

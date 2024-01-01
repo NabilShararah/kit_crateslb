@@ -79,7 +79,7 @@ class _LoginState extends State<Login> {
             SizedBox(
                 width: 200,
                 child: TextField(
-                  // replace typed text with * for passwords
+
                   obscureText: true,
                   enableSuggestions: false, // disable suggestions for password
                   autocorrect: false, // disable auto correct for password

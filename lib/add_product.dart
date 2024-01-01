@@ -5,7 +5,6 @@ import 'package:http/http.dart' as http;
 import 'page3.dart';
 import 'dart:convert' as convert;
 
-import 'page2.dart';
 
 // domain of your server
 const String _baseURL = 'https://nabiltestunimobile.000webhostapp.com';

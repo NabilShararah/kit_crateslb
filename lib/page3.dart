@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Kits.dart';
-import 'search.dart';
+import 'order.dart';
 
 class Page3 extends StatefulWidget {
   const Page3({super.key});
@@ -43,7 +43,7 @@ class _Page3State extends State<Page3> {
           IconButton(onPressed: () {
             setState(() { // open the search product page
               Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => const Search())
+                  MaterialPageRoute(builder: (context) => const Order())
               );
             });
           }, icon: const Icon(Icons.search))

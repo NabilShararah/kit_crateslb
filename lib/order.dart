@@ -1,14 +1,17 @@
+//Nabil Shararah 12232685
+
+
 import 'package:flutter/material.dart';
 import 'Kits.dart';
 
-class Search extends StatefulWidget {
-  const Search({Key? key}) : super(key: key);
+class Order extends StatefulWidget {
+  const Order({Key? key}) : super(key: key);
 
   @override
-  State<Search> createState() => _SearchState();
+  State<Order> createState() => _OrderState();
 }
 
-class _SearchState extends State<Search> {
+class _OrderState extends State<Order> {
   // controller to store product pid
   final TextEditingController _controllerID = TextEditingController();
   String _text = ''; // displays product info or error message
@@ -22,7 +25,7 @@ class _SearchState extends State<Search> {
   // update product info or display error message
   void update(String text) {
     setState(() {
-      _text = text;
+      _text = '$text\n\nThank you for your order';
     });
   }
 
@@ -39,12 +42,9 @@ class _SearchState extends State<Search> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Colors.amberAccent,
-      appBar: AppBar(backgroundColor: Colors.black,
-        title: const Text('Page 1',
-          style: TextStyle(
-              fontSize:28,
-              color :Colors.amberAccent),),
+    return Scaffold( backgroundColor: Colors.amberAccent,
+      appBar: AppBar( backgroundColor: Colors.black,
+        title: const Text(' Order Now', style: TextStyle(fontSize: 25.0,color :Colors.amber)),
         centerTitle: true,
       ),
       body: Center(child: Column(children: [
@@ -53,7 +53,7 @@ class _SearchState extends State<Search> {
             decoration: const InputDecoration(border: OutlineInputBorder(), hintText: 'Enter ID'))),
         const SizedBox(height: 10),
         ElevatedButton(onPressed: getProduct,
-            child: const Text('Find', style: TextStyle(fontSize: 18))),
+            child: const Text('Order', style: TextStyle(fontSize: 18))),
         const SizedBox(height: 10),
         Center(child: SizedBox(width: 200, child: Flexible(child: Text(_text,
             style: const TextStyle(fontSize: 18))))),
